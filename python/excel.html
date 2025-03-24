@@ -58,6 +58,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/excel';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2d. Jupyter Notebook" href="jupyter.html" />
@@ -351,6 +352,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-csv-and-xlsx-files">Opening CSV and XLSX Files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv-or-xlsx">Exporting to CSV or XLSX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-file-access">Advanced File Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-module">os module</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-os-agnostic-file-paths">A. OS Agnostic File Paths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-automated-folder-creation">B. Automated Folder Creation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -725,6 +734,62 @@ document.write(`
 </ul>
 </div>
 </section>
+<section id="advanced-file-access">
+<h2>Advanced File Access<a class="headerlink" href="#advanced-file-access" title="Link to this heading">#</a></h2>
+<p>For advanced file sorting and finding, you can employ the <code class="docutils literal notranslate"><span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">glob</span></code> modules.</p>
+<section id="os-module">
+<h3>os module<a class="headerlink" href="#os-module" title="Link to this heading">#</a></h3>
+<section id="a-os-agnostic-file-paths">
+<h4>A. OS Agnostic File Paths<a class="headerlink" href="#a-os-agnostic-file-paths" title="Link to this heading">#</a></h4>
+<p>To address the problem of Mac/Linux and Windows using different filepath conventions, we can use <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code>.</p>
+<ol class="arabic">
+<li><p>Importing the module:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code></p>
+</li>
+<li><p>Specifying the folder/directory that the file is in within a variable:</p>
+<p><code class="docutils literal notranslate"><span class="pre">filepath</span> <span class="pre">=</span> <span class="pre">&quot;/user/code&quot;</span></code></p>
+</li>
+<li><p>Specifying the filename within a variable:</p>
+<p><code class="docutils literal notranslate"><span class="pre">filename</span> <span class="pre">=</span> <span class="pre">&quot;data.csv</span></code></p>
+</li>
+<li><p>Create the new filepath by combining the two variables:</p>
+<p><code class="docutils literal notranslate"><span class="pre">full_path</span> <span class="pre">=</span> <span class="pre">os.path.join(filepath,</span> <span class="pre">filename)</span></code></p>
+</li>
+</ol>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;/user/code&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;data.csv&quot;</span>
+
+<span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="b-automated-folder-creation">
+<h4>B. Automated Folder Creation<a class="headerlink" href="#b-automated-folder-creation" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_directory</span> <span class="o">=</span> <span class="s1">&#39;/Users/Example/Input&#39;</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s1">&#39;/Users/Example/Output&#39;</span>
+
+<span class="c1"># Ensure the output directory exists</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_directory</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_and_create_folder</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Folder &#39;</span><span class="si">{</span><span class="n">folder_path</span><span class="si">}</span><span class="s2">&#39; created.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Folder &#39;</span><span class="si">{</span><span class="n">folder_path</span><span class="si">}</span><span class="s2">&#39; already exists.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -793,6 +858,14 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-csv-and-xlsx-files">Opening CSV and XLSX Files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv-or-xlsx">Exporting to CSV or XLSX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-file-access">Advanced File Access</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-module">os module</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-os-agnostic-file-paths">A. OS Agnostic File Paths</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-automated-folder-creation">B. Automated Folder Creation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

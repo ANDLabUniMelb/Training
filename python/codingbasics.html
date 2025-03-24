@@ -58,6 +58,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/codingbasics';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2b. Data Wrangling 101" href="pandas.html" />
@@ -478,50 +479,25 @@ document.write(`
 <blockquote>
 <div><p><strong>Booleans:</strong> In R, booleans are called a logicals, and is denoted by TRUE or FALSE (all letters uppercase).</p>
 </div></blockquote>
+<div class="info admonition">
+<p class="admonition-title">Mismatched Data Types</p>
 <p>Often, Python and R will not let you do something because you’re trying to do something to one data type that can only be done in another.</p>
 <p>A common example is trying to do maths with numbers stored as strings rather than integers/floats. The solution to this is transform the data type by using <code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">float()</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code> and <code class="docutils literal notranslate"><span class="pre">boolean()</span></code> respectively.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will not work because the currentyear variable is a string</span>
-
-<span class="n">birthyear</span> <span class="o">=</span> <span class="mi">2001</span>
+<p>This will not work because the <code class="docutils literal notranslate"><span class="pre">currentyear</span></code> variable is a string, which is treated like text.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">birthyear</span> <span class="o">=</span> <span class="mi">2001</span>
 <span class="n">currentyear</span> <span class="o">=</span> <span class="s2">&quot;2025&quot;</span>
 <span class="n">age</span> <span class="o">=</span> <span class="n">currentyear</span> <span class="o">-</span> <span class="n">birthyear</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">birthyear</span> <span class="o">=</span> <span class="mi">2001</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">currentyear</span> <span class="o">=</span> <span class="s2">&quot;2025&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">age</span> <span class="o">=</span> <span class="n">currentyear</span> <span class="o">-</span> <span class="n">birthyear</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;int&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># currentyear is now a number that python can do maths on </span>
-
-<span class="n">birthyear</span> <span class="o">=</span> <span class="mi">2001</span>
+<p>This will now work because <code class="docutils literal notranslate"><span class="pre">currentyear</span></code> is now a number that python can do maths on.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">birthyear</span> <span class="o">=</span> <span class="mi">2001</span>
 <span class="n">currentyear</span> <span class="o">=</span> <span class="s2">&quot;2025&quot;</span>
 <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">currentyear</span><span class="p">)</span> <span class="o">-</span> <span class="n">birthyear</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
-</pre></div>
-</div>
 </div>
 </div>
 </section>
@@ -613,7 +589,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Login Successful
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Login Unsuccessful, Please Try Again
 </pre></div>
 </div>
 </div>
@@ -751,7 +727,7 @@ Sabrina Carpenter is a musician
 </div>
 </div>
 </div>
-<p>In the hypothetical code above, while the condition <code class="docutils literal notranslate"><span class="pre">bored</span></code> = <code class="docutils literal notranslate"><span class="pre">True</span></code> (recall the <em>boolean</em> data type), you will watch Instagram reels, until eventually <code class="docutils literal notranslate"><span class="pre">bored</span></code> = <code class="docutils literal notranslate"><span class="pre">False</span></code> (in this code, you would watch reels forever, just like real life). There’s an error because this is not real code.</p>
+<p>In the hypothetical code above, while the condition <code class="docutils literal notranslate"><span class="pre">bored</span></code> = <code class="docutils literal notranslate"><span class="pre">True</span></code> (recall the <em>boolean</em> data type), you will watch Instagram reels, until eventually <code class="docutils literal notranslate"><span class="pre">bored</span></code> = <code class="docutils literal notranslate"><span class="pre">False</span></code> (in this code, you would watch reels forever, just like real life).</p>
 </section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
@@ -838,11 +814,16 @@ Sabrina Carpenter is a musician
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Developmental&#39;: 77.5, &#39;Social&#39;: 84.0, &#39;Cognitive&#39;: 107.0, &#39;Personality &amp; Social&#39;: 77.5}
-To achieve a H1 in Developmental Psychology, you need a minimum exam score of: 77.5
-To achieve a H1 in Social Psychology, you need a minimum exam score of: 84.0
-You can&#39;t get a H1 in Cognitive Psychology. sorry :(
-To achieve a H1 in Personality &amp; Social Psychology, you need a minimum exam score of: 77.5
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">min_scores</span><span class="p">[</span><span class="n">subject</span><span class="p">]</span> <span class="o">=</span> <span class="n">required_exam_score</span> <span class="c1"># This assigns the minimum exam score to the subject</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">return</span> <span class="n">min_scores</span> 
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="n">min_scores</span><span class="p">)</span> <span class="c1"># see below!</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">min_scores</span> <span class="o">=</span> <span class="n">min_exam_score</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span> <span class="c1"># This input into the function we made means that the exam is worth 40% of the final mark</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">min_scores</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;min_scores&#39; is not defined
 </pre></div>
 </div>
 </div>
