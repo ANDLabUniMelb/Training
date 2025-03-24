@@ -6,4 +6,4 @@ This is a resource originally created for the AND Lab at the University of Melbo
 ```{tableofcontents}
 ```
 
-> Version 1.1.0. David Cui. March 2025.
+> Version 1.1.1. David Cui. March 2025.

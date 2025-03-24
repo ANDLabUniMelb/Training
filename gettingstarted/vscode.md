@@ -8,7 +8,7 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
 
 1. First, we'll want to install the Python extension for VSCode, which can be done via the **extensions** tab on the left. Search up "Python" once prompted in the top-left window, and download the Python extension.
 
-<video width="854" height="480" controls>
+<video width="800" height="450" controls>
   <source src="video1-python.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -17,14 +17,14 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
 
     **Create a new file** by pressing the new file icon next to the folder's name or right click on the empty left panel, then name your file and **end the filename with .py** to tell the computer that you are making a Python file.
 
-<video width="854" height="480" controls>
+<video width="800" height="450" controls>
   <source src="video2-newfile.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 3. You'll want to open up your terminal by clicking the button on the top-right of your screen that looks like an eraser pointing downwards. 
 
-<video width="854" height="480" controls>
+<video width="800" height="450" controls>
   <source src="video3-helloworld.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -37,8 +37,22 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
     5. click "Venv" 
     6. select the latest version of Python available to you
 
-<video width="854" height="480" controls>
+<video width="800" height="450" controls>
   <source src="video4-venv.mp4" type="video/mp4">
   Your browser does not support the video tag.
 
 </video>
+
+``` {admonition} Handy Shortcuts
+
+VSCode offers some features that make working with code a lot easier. You'll forget the hotkeys but at least you'll know these are possible:
+
+* To select **multiple instances of the same chunks of code or text** (you'll notice when you highlight some code and theres the same code elsewhere on the screen), press ``Ctrl + D`` on Windows or ``Command + D`` on Mac.
+
+
+* To **add another cursor**, click while holding ``Alt`` on Windows or ``Command`` on Mac.
+
+
+* To select **multiple lines**, ``Ctrl + Alt`` + Arrow keys on Windows, ``Option + Command`` + Arrow keys on Mac.
+
+```
