@@ -41,5 +41,3 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
   <source src="videos/video4-venv.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-
-# Videos not working and I'm lost tbh: play around with possible file paths.
