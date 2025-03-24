@@ -15,14 +15,16 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
 
 2. We'll then want to choose a directory (i.e. a folder) to do your coding in. Feel free to pick anything - this can be done by going back to the **Explorer** tab (top-most-left), then either following the prompt in the left window, or the prompt in the middle of the screen.
 
-    **Create a new file** by pressing the new file icon next to the folder's name or right click on the empty left panel, then name your file and **end the filename with .py** to tell the computer that you are making a Python file.
+**Create a new file** by pressing the new file icon next to the folder's name or right click on the empty left panel, then name your file and **end the filename with .py** to tell the computer that you are making a Python file.
+
+You'll also want to open up your terminal by clicking the button on the top-right of your screen that looks like an eraser pointing downwards. 
 
 <video width="800" height="450" controls>
   <source src="video2-newfile.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-3. You'll want to open up your terminal by clicking the button on the top-right of your screen that looks like an eraser pointing downwards. 
+3. To do stuff in VSCode, you type in code on your document, then click the **Run** button on the top right of your screen (it looks like a play button, ▶). We'll learn what we can do with Python in a sec.
 
 <video width="800" height="450" controls>
   <source src="video3-helloworld.mp4" type="video/mp4">
