@@ -39,13 +39,15 @@ To do stuff in VSCode, you type in code on your document, then click the **Run**
 
 ## 4. Setting Up a Virtual Environment
 
-**(Recommended)** This is optional but is generally considered good practice - we'll want to set up a **"virtual environment" (venv)** to conduct your code in. In short, this will make it so that all the code you use is self-contained in the specific project you are engaged in, and is useful in keeping your computer organised and sharing your projects with others.
-    1. To do this, you will need to click the big search bar on the top of the screen
-    2. select **"Show and Run Commands"**
-    3. type in *"Python: Create Environment"*, 
-    4. then click the option that shows up. 
-    5. click "Venv" 
-    6. select the latest version of Python available to you
+> **(Recommended)** This is optional but is generally considered good practice.
+
+We'll want to set up a **"virtual environment" (venv)** to conduct your code in. In short, this will make it so that all the code you use is self-contained in the specific project you are engaged in, and is useful in keeping your computer organised and sharing your projects with others. To do this, you will need to:
+1. Click the big search bar on the top of the screen
+2. Select **"Show and Run Commands"**
+3. Type in *"Python: Create Environment"*
+4. Then click the option that shows up
+5. Click "Venv" 
+6. Select the latest version of Python available to you
 
 <video width="800" height="450" controls>
   <source src="video4-venv.mp4" type="video/mp4">
