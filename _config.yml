@@ -10,6 +10,8 @@ copyright: "© 2025 University of Melbourne. All Rights Reserved"
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  exclude_tags:
+    - no-execute
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -31,3 +33,4 @@ repository:
 html:
   use_issues_button: false
   use_repository_button: false
+  favicon: favicon.ico
